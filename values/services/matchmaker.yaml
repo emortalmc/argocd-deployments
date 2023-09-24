@@ -1,0 +1,24 @@
+name: matchmaker
+version: 4476de009a434117c3ea9e634d6293261dac0cfa
+imageName: kurushimi
+
+replicas: 1
+enableLiveConfig: true
+
+envPrefix: "MM_"
+
+extraEnv:
+  NAMESPACE: "emortalmc"
+  PARTYSERVICE_SERVICEHOST: "party-manager"
+  PARTYSERVICE_SERVICEPORT: "9010"
+  PARTYSERVICE_SETTINGSSERVICEHOST: "party-manager"
+  PARTYSERVICE_SETTINGSSERVICEPORT: "9010"
+  LOBBY_MATCH_SIZE: "50"
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 16Mi

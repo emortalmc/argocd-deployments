@@ -1,0 +1,6 @@
+apiVersion: v2
+name: service
+version: 1.0.0
+description: A chart used to generate deployments for services
+type: application
+appVersion: 1.0.0

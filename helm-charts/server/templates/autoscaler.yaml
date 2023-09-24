@@ -1,0 +1,15 @@
+apiVersion: autoscaling.agones.dev/v1
+kind: FleetAutoscaler
+
+metadata:
+  name: {{ .Values.name }}
+  namespace: emortalmc
+
+spec:
+  fleetName: {{ .Values.name }}
+  policy:
+    type: Buffer
+    buffer:
+      bufferSize: {{ .Values.lobby | ternary 2 1 }}
+      minReplicas: 3
+      maxReplicas: 5

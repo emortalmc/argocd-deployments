@@ -1,0 +1,7 @@
+name: relationship-manager
+version: 41a641aa54c639857ba18e3deca633eaa0fcd90d
+imageName: relationship-manager-service
+
+extraEnv:
+  PLAYERTRACKERSERVICE_HOST: "player-tracker"
+  PLAYERTRACKERSERVICE_PORT: "9010"

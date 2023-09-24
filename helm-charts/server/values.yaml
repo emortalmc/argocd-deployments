@@ -1,0 +1,36 @@
+# The name of the fleet, container, and image
+name: ""
+
+# The name of the Dockerfile's JAR. Tower defence has a different JAR name.
+jarName: ""
+
+# The version of the image. This will be automatically updated in each individual values override.
+version: ""
+
+# Whether the server will run with preview enabled
+preview: true
+
+# Whether the server is the lobby
+# It's cleaner to do this than have multiple separate config variables that only the lobby overrides
+lobby: false
+
+# Agones player counts
+players:
+  # Whether a player count should be defined
+  enabled: false
+  # What the player count should be
+  count: 50
+
+# JVM memory options
+memory:
+  max: 512M
+  min: 512M
+
+# Server container resources override
+resources:
+  requests:
+    cpu: 0m
+    memory: 768Mi
+  limits:
+    cpu: 1500m
+    memory: 768Mi

@@ -1,0 +1,6 @@
+name: minesweeper
+version: 71717286f2390018dc9410ad6e6f6a38f232b8a3
+
+players:
+  enabled: true
+  count: 100

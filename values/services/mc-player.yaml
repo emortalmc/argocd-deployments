@@ -1,0 +1,10 @@
+name: mc-player
+version: a6c389952fe6e3fbf4f1bf831085aad7b6a903b2
+imageName: mc-player-service
+
+mongodb:
+  name: mc-player-service
+
+otherServices:
+  - badge-manager
+  - player-tracker

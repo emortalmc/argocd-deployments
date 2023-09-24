@@ -1,0 +1,39 @@
+# The name of the deployment, container, and image
+name: ""
+
+# The version of the image. This will be automatically updated in each individual values override.
+version: ""
+
+# The name of the image
+imageName: ""
+
+# The amount of replicas to run of the service
+replicas: 3
+
+enableLiveConfig: false
+
+mongodb:
+  enabled: true
+  # The MongoDB database name for the service
+  #name: ""
+
+# This is for the matchmaker, which has the prefix "MM_" on all of its variables
+envPrefix: ""
+
+# This is for services that have extra environment variables, such as a dependent service host/port
+extraEnv:
+# DEPENDENT_SERVICE_HOST: "dependent-service"
+# DEPENDENT_SERVICE_PORT: "9010"
+
+# This is for services that define more than one service, like the mc-player service, which also defines the badge
+# service and the player tracker service
+otherServices:
+# - other-service
+
+#resources:
+#  limits:
+#    cpu: 500m
+#    memory: 128Mi
+#  requests:
+#    cpu: 50m
+#    memory: 16Mi

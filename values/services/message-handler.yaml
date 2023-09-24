@@ -1,0 +1,15 @@
+name: message-handler
+version: 0df354ef01e9f80053a9e6d193f477bde953c4e8
+
+mongodb:
+  enabled: false
+
+extraEnv:
+  RELATIONSHIPSERVICE_HOST: "relationship-manager"
+  RELATIONSHIPSERVICE_PORT: "9010"
+  PLAYERTRACKERSERVICE_HOST: "player-tracker"
+  PLAYERTRACKERSERVICE_PORT: "9010"
+  BADGESERVICE_HOST: "badge-manager"
+  BADGESERVICE_PORT: "9010"
+  PERMISSIONSERVICE_HOST: "permission"
+  PERMISSIONSERVICE_PORT: "9010"

@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: {{ .Values.name }}
+  namespace: emortalmc
+  labels:
+    app: {{ .Values.name }}
+
+spec:
+  replicas: {{ .Values.replicas }}
+
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.name }}
+      annotations:
+        linkerd.io/inject: enabled
+
+    spec:
+      {{ if .Values.enableLiveConfig }}
+      serviceAccountName: {{ .Values.name }}
+      automountServiceAccountToken: true
+      {{ end }}
+
+      containers:
+        - name: {{ .Values.name }}
+          image: "ghcr.io/emortalmc/{{ default (.Values.name) .Values.imageName }}:{{ .Values.version }}"
+          {{ include "service.resources" . | nindent 10 }}
+
+          ports:
+            - name: grpc
+              containerPort: 9010
+
+          {{ include "service.env" . | nindent 10 }}

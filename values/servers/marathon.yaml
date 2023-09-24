@@ -1,0 +1,6 @@
+name: marathon
+version: 7d5a0018db1927d2476360a13ae40e355d22d8c4
+
+players:
+  enabled: true
+  count: 100

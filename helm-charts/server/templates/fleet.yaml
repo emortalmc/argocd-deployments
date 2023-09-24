@@ -1,0 +1,100 @@
+apiVersion: agones.dev/v1
+kind: Fleet
+
+metadata:
+  name: {{ .Values.name }}
+  namespace: emortalmc
+
+spec:
+  scheduling: Distributed
+
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+
+  {{- if .Values.lobby }}
+  allocationOverflow:
+    labels:
+      emortal.dev/outdated: "true"
+  {{- end }}
+
+  template:
+    {{- if .Values.lobby }}
+    metadata:
+      labels:
+        emortal.dev/mc-metrics-enabled: "true"
+    {{- end }}
+    spec:
+      {{- if .Values.players.enabled }}
+      players:
+        initialCapacity: {{ .Values.players.count }}
+      {{- end }}
+
+      ports:
+        - name: default
+          portPolicy: Dynamic
+          containerPort: 25565
+          protocol: TCP
+
+      health:
+        initialDelaySeconds: 5
+        periodSeconds: 15
+        failureThreshold: 2
+
+      template:
+        spec:
+          serviceAccountName: default-gameserver
+          automountServiceAccountToken: true
+
+          containers:
+            - name: {{ .Values.name }}
+              image: "ghcr.io/emortalmc/{{ .Values.name }}:{{ .Values.version }}"
+
+              command: ["java"]
+              args: [
+                {{- if .Values.preview }}
+                "--enable-preview",
+                {{- end }}
+                "-XX:+UseZGC",
+                "-Xmx{{ .Values.memory.max }}",
+                "-Xms{{ .Values.memory.min }}",
+                "-jar",
+                "/app/{{ default (.Values.name) .Values.jarName }}"
+              ]
+
+              resources:
+              {{- with .Values.resources }}
+                {{- toYaml . | nindent 16 }}
+              {{- end }}
+
+              {{- if .Values.lobby }}
+              ports:
+                - name: metrics
+                  containerPort: 8081
+                  protocol: TCP
+              {{- end }}
+
+              env:
+                - name: VELOCITY_FORWARDING_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: velocity-forwarding-token
+                      key: forwarding.secret
+                      optional: false
+                - name: KAFKA_HOST
+                  value: default-kafka-bootstrap
+                - name: KAFKA_PORT
+                  value: "9092"
+                - name: NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: FLEET_NAME
+                  value: {{ .Values.name }}
+                - name: PYROSCOPE_SERVER_ADDRESS
+                  valueFrom:
+                    configMapKeyRef:
+                      name: pyroscope
+                      key: address

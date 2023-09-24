@@ -1,0 +1,16 @@
+name: tower-defence
+version: c984aa415a4b65d16519ac3cc5cff43d1ea404d5
+
+jarName: "tower_defence.jar"
+
+memory:
+  min: 256M
+  max: 256M
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 512Mi
+  limits:
+    cpu: "1.5"
+    memory: 512Mi
