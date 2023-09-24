@@ -1,6 +1,13 @@
 # The name of the fleet, container, and image
 name: ""
 
+# The full image. Defaults to "ghcr.io/emortalmc/{name}:{version}"
+image:
+  # The image format
+  format: "ghcr.io/emortalmc/%s:%s"
+  # The image name. This is the first "%s" in the above format. Defaults to "{name}"
+  #name: ""
+
 # The name of the Dockerfile's JAR. Tower defence has a different JAR name.
 jarName: ""
 

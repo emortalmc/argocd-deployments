@@ -50,7 +50,7 @@ spec:
 
           containers:
             - name: {{ .Values.name }}
-              image: "ghcr.io/emortalmc/{{ .Values.name }}:{{ .Values.version }}"
+              image: {{ printf .Values.image.format (default .Values.name .Values.image.name) .Values.version }}
 
               command: ["java"]
               args: [
