@@ -1,0 +1,33 @@
+name: "Sync version from repo"
+
+on:
+  workflow_call:
+    inputs:
+      deployment-name:
+        description: "The name of the deployment in the update commits"
+        required: true
+      version:
+        description: "The version to update to"
+        required: true
+      values-path:
+        description: "The path to the values file for the Helm chart"
+        required: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+
+      - name: "Update image version"
+        shell: "bash"
+        # git commit -a automatically adds files that have been modified
+        run: |
+          sed -i 's|version: .*|version: ${{ inputs.version }}|g' ${{ inputs.values-path }}
+
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git commit -am "Update image version for ${{ inputs.deployment-name }} to ${{ inputs.version }}"
+          git push
