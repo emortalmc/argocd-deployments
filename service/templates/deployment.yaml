@@ -27,6 +27,14 @@ spec:
       automountServiceAccountToken: true
       {{ end }}
 
+      {{ if .Values.enableLiveConfig }}
+      volumes:
+        - name: gamemodes
+          configMap:
+            name: gamemodes
+            optional: false
+      {{ end }}
+
       containers:
         - name: {{ .Values.name }}
           image: "ghcr.io/emortalmc/{{ default (.Values.name) .Values.imageName }}:{{ .Values.version }}"
@@ -36,4 +44,9 @@ spec:
             - name: grpc
               containerPort: 9010
 
+          {{ if .Values.enableLiveConfig }}
+          volumeMounts:
+            - name: gamemodes
+              mountPath: /app/config/gamemodes
+          {{ end }}
           {{ include "service.env" . | nindent 10 }}
