@@ -9,7 +9,7 @@ image:
   #name: ""
 
 # The name of the Dockerfile's JAR. Tower defence has a different JAR name.
-jarName: ""
+#jarName: ""
 
 # The version of the image. This will be automatically updated in each individual values override.
 version: ""

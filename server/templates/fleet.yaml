@@ -61,7 +61,7 @@ spec:
                 "-Xmx{{ .Values.memory.max }}",
                 "-Xms{{ .Values.memory.min }}",
                 "-jar",
-                "/app/{{ default (.Values.name) .Values.jarName }}"
+                "/app/{{ default (printf "%s.jar" .Values.name) .Values.jarName }}"
               ]
 
               resources:
