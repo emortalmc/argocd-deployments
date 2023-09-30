@@ -2,7 +2,7 @@ name: tower-defence
 version: c984aa415a4b65d16519ac3cc5cff43d1ea404d5
 
 image:
-  format: "ghcr.io/ZakShearman/%s:%s"
+  format: "ghcr.io/zakshearman/%s:%s"
   name: "mc-tower-defence"
 
 jarName: "tower_defence.jar"
