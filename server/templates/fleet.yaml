@@ -98,3 +98,7 @@ spec:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
+                {{- if .Values.lobby }}
+                - name: MONITORING_ENABLED
+                  value: "true"
+                {{- end }}
