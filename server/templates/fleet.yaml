@@ -54,10 +54,8 @@ spec:
 
               command: ["java"]
               args: [
-                {{- if .Values.preview }}
-                "--enable-preview",
-                {{- end }}
                 "-XX:+UseZGC",
+                "-XX:+ZGenerational"
                 "-Xmx{{ .Values.memory.max }}",
                 "-Xms{{ .Values.memory.min }}",
                 "-jar",

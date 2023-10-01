@@ -14,9 +14,6 @@ image:
 # The version of the image. This will be automatically updated in each individual values override.
 version: ""
 
-# Whether the server will run with preview enabled
-preview: true
-
 # Whether the server is the lobby
 # It's cleaner to do this than have multiple separate config variables that only the lobby overrides
 lobby: false
