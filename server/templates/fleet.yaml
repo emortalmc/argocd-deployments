@@ -21,11 +21,6 @@ spec:
   {{- end }}
 
   template:
-    {{- if .Values.lobby }}
-    metadata:
-      labels:
-        emortal.dev/mc-metrics-enabled: "true"
-    {{- end }}
     spec:
       {{- if .Values.players.enabled }}
       players:
@@ -44,6 +39,11 @@ spec:
         failureThreshold: 2
 
       template:
+        {{- if .Values.lobby }}
+        metadata:
+          labels:
+            emortal.dev/mc-metrics-enabled: "true"
+        {{- end }}
         spec:
           serviceAccountName: default-gameserver
           automountServiceAccountToken: true
