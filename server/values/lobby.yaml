@@ -8,13 +8,13 @@ players:
   count: 50
 
 memory:
-  max: 768M
-  min: 768M
+  max: 2048M
+  min: 2048M
 
 resources:
   requests:
     cpu: 0m
-    memory: 1536Mi
+    memory: 3072Mi
   limits:
-    cpu: 1500m
-    memory: 1536Mi
+    cpu: 2000m
+    memory: 3072Mi
