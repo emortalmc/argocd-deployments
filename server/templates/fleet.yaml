@@ -55,7 +55,6 @@ spec:
               command: ["java"]
               args: [
                 "-XX:+UseZGC",
-                "-XX:+ZGenerational",
                 "-Xmx{{ .Values.memory.max }}",
                 "-Xms{{ .Values.memory.min }}",
                 "-jar",
