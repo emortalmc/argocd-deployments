@@ -58,7 +58,7 @@ spec:
                   cpu: "500m"
                 limits:
                   memory: "8Gi"
-                  cpu: "3"
+                  cpu: "8"
 
               env:
                 - name: VELOCITY_FORWARDING_SECRET
