@@ -25,6 +25,11 @@ extraEnv:
 # DEPENDENT_SERVICE_HOST: "dependent-service"
 # DEPENDENT_SERVICE_PORT: "9010"
 
+extraSecrets:
+# SECRET_ENV_VAR:
+#   name: secret-name
+#   key: secret-key
+
 # This is for services that define more than one service, like the mc-player service, which also defines the badge
 # service and the player tracker service
 otherServices:

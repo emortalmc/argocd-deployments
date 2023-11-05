@@ -23,6 +23,14 @@ env:
   - name: {{ printf "%s%s" $.Values.envPrefix $key }}
     value: "{{ $value }}"
 {{- end }}
+{{- range $key, $value := .Values.extraSecrets }}
+  - name: {{ printf "%s%s" $.Values.envPrefix $key }}
+    valueFrom:
+      secretKeyRef:
+        name: {{ $value.name }}
+        key: {{ $value.key }}
+        optional: {{ $value.optional }}
+{{- end }}
 {{- end }}
 
 {{- define "service.resources" }}

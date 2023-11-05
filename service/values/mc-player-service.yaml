@@ -8,3 +8,9 @@ mongodb:
 otherServices:
   - badge-manager
   - player-tracker
+
+extraSecrets:
+  DISCORDWEBHOOKURL:
+    name: join-webhook
+    key: url
+    optional: true
