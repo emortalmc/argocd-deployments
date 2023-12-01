@@ -1,5 +1,5 @@
 name: mc-player
-version: 72eeb0639ed7fee2abaabd061721f6d642326b8c
+version: 054bc87ef861287bf166d55baa2131e856ce0e9c
 imageName: mc-player-service
 
 mongodb:
