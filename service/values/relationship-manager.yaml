@@ -1,5 +1,5 @@
 name: relationship-manager
-version: 4de64e1b569bc34bcb44593d08850dc01b2df3dd
+version: 747657d015e6b8869c84f253e13392b48a2843db
 imageName: relationship-manager-service
 
 extraEnv:
