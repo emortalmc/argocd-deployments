@@ -1,5 +1,5 @@
 name: matchmaker
-version: fe7cb56a270135d43def1a497bce5144f06908d8
+version: 549cedb30894129a46f9e76a25d33236677c3fb4
 imageName: kurushimi
 
 replicas: 1
