@@ -5,15 +5,13 @@ imageName: kurushimi
 replicas: 1
 enableLiveConfig: true
 
-envPrefix: "MM_"
-
 extraEnv:
   NAMESPACE: "emortalmc"
-  PARTYSERVICE_SERVICEHOST: "party-manager"
-  PARTYSERVICE_SERVICEPORT: "9010"
-  PARTYSERVICE_SETTINGSSERVICEHOST: "party-manager"
-  PARTYSERVICE_SETTINGSSERVICEPORT: "9010"
-  LOBBY_MATCH_SIZE: "50"
+  PARTY_SERVICE_HOST: "party-manager"
+  PARTY_SERVICE_PORT: "9010"
+  PARTY_SETTINGS_SERVICE_HOST: "party-manager"
+  PARTY_SETTINGS_SERVICE_PORT: "9010"
+  LOBBY_MATCH_SIZE: "50" # 50 is the default value - this is here to remind you that you can change it for testing
 
 resources:
   limits:
