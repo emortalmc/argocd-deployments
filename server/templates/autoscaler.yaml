@@ -11,5 +11,5 @@ spec:
     type: Buffer
     buffer:
       bufferSize: {{ .Values.lobby | ternary 2 1 }}
-      minReplicas: 3
-      maxReplicas: 5
+      minReplicas: 2
+      maxReplicas: 6

@@ -37,11 +37,9 @@ spec:
         failureThreshold: 2
 
       template:
-        {{- if .Values.lobby }}
         metadata:
           labels:
             emortal.dev/mc-metrics-enabled: "true"
-        {{- end }}
         spec:
           serviceAccountName: default-gameserver
           automountServiceAccountToken: true
@@ -64,12 +62,10 @@ spec:
                 {{- toYaml . | nindent 16 }}
               {{- end }}
 
-              {{- if .Values.lobby }}
               ports:
                 - name: metrics
                   containerPort: 8081
                   protocol: TCP
-              {{- end }}
 
               env:
                 - name: VELOCITY_FORWARDING_SECRET
@@ -93,7 +89,4 @@ spec:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
-                {{- if .Values.lobby }}
-                - name: MONITORING_ENABLED
-                  value: "true"
-                {{- end }}
+
