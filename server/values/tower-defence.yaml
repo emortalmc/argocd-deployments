@@ -5,11 +5,10 @@ image:
   format: "ghcr.io/zakshearman/%s:%s"
   name: "mc-tower-defence"
 
-jarName: "tower_defence.jar"
-
+# Keep 128M away from the heap
 memory:
-  min: 256M
-  max: 256M
+  min: 384M
+  max: 384M
 
 resources:
   requests:
