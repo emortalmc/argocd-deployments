@@ -84,7 +84,7 @@ spec:
                       fieldPath: metadata.namespace
                 - name: FLEET_NAME
                   value: {{ .Values.name }}
-                - name: PYROSCOPE_SERVER_ADDRESS
+                - name: PYROSCOPE_ADDRESS
                   valueFrom:
                     configMapKeyRef:
                       name: pyroscope
