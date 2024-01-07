@@ -13,7 +13,7 @@ memory:
 resources:
   requests:
     cpu: 300m
-    memory: 512Mi
+    memory: 768Mi
   limits:
     cpu: "1.5"
-    memory: 512Mi
+    memory: 768Mi
