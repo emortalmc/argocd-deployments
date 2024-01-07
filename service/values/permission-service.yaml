@@ -1,5 +1,5 @@
 name: permission
-version: 172c9a116d51ab5ca98859def0511727382c99da
+version: 1da652f652bd8e674d8974890080b16f4d44fcfa
 imageName: permission-service-go
 
 mongodb:
