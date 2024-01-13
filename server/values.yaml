@@ -34,7 +34,7 @@ memory:
 resources:
   requests:
     cpu: 0m
-    memory: 768Mi
+    memory: 1024Mi # Remember usage of: heap, off-heap, native memory, profiler overhead (separate proc)
   limits:
     cpu: 1500m
-    memory: 768Mi
+    memory: 1280Mi
