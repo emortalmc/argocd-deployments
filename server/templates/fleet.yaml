@@ -46,7 +46,8 @@ spec:
 
           volumes:
             - name: crash-reports
-              emptyDir: { }
+              persistentVolumeClaim:
+                claimName: mc-crash-reports
 
           containers:
             - name: {{ .Values.name }}
@@ -99,6 +100,7 @@ spec:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
+
               volumeMounts:
                 - mountPath: /app/crash_reports
                   name: crash-reports
