@@ -8,7 +8,7 @@ version: ""
 imageName: ""
 
 # The amount of replicas to run of the service
-replicas: 3
+replicas: 2
 
 enableLiveConfig: false
 
@@ -44,4 +44,4 @@ resources:
   requests:
     cpu: 50m
     memory: 16Mi
-    ephemeral-storage: 1Gi
+    ephemeral-storage: 500Mi
