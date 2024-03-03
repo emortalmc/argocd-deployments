@@ -1,5 +1,5 @@
 name: minesweeper
-version: 503ad16f359d17acec0a5c181f450812cb58e7a0
+version: c926092d297466203cc8315a306e7531370c6412
 
 players:
   enabled: true
