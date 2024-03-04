@@ -59,7 +59,7 @@ spec:
                 "-Xlog:jni+resolve=off", # This is a workaround to stop the JNI warning for Unsafe.park being registered multiple times - caused by Pyroscope.
                 "-Xmx{{ .Values.memory.max }}",
                 "-Xms{{ .Values.memory.min }}",
-                "-Dlogback.configurationFile=logback-prod.xml"
+                "-Dlogback.configurationFile=logback-prod.xml",
                 # Start of crash reporting
                 "-XX:ErrorFile=/app/crash_reports/hs_err_pid%p.log",
                 "-XX:+HeapDumpOnOutOfMemoryError",
