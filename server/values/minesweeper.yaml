@@ -2,4 +2,4 @@ name: minesweeper
 version: 94aa0b8dfb9f082401f1c806a2a3bf0a4d36fe4a
 
 players:
-  max: 100
+  capacity: 100

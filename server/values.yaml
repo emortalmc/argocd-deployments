@@ -19,7 +19,7 @@ version: ""
 lobby: false
 
 players:
-  max: # No default value
+  capacity: # No default value
 
 # JVM memory options
 memory:

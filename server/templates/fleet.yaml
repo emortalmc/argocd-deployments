@@ -23,13 +23,16 @@ spec:
       counters:
         players:
           count: 0
-          {{- if .Values.players.max }}
-          max: {{ .Values.players.max }}
+          {{- if .Values.players.capacity }}
+          capacity: {{ .Values.players.capacity }}
           {{- end }}
 
       lists:
         players:
           values: []
+          {{- if .Values.players.capacity }}
+          capacity: {{ .Values.players.capacity }}
+          {{- end }}
 
       ports:
         - name: default
