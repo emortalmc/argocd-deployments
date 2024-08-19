@@ -17,9 +17,6 @@ spec:
 
   template:
     spec:
-      players:
-        initialCapacity: 1500
-
       ports:
         - name: default
           portPolicy: Static

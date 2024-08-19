@@ -18,12 +18,8 @@ version: ""
 # It's cleaner to do this than have multiple separate config variables that only the lobby overrides
 lobby: false
 
-# Agones player counts
 players:
-  # Whether a player count should be defined
-  enabled: false
-  # What the player count should be
-  count: 50
+  max: # No default value
 
 # JVM memory options
 memory:

@@ -2,5 +2,4 @@ name: marathon
 version: f9415f1d9ded84490223c7adcba3e071a989c1e4
 
 players:
-  enabled: true
-  count: 100
+  max: 100

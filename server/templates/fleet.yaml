@@ -20,10 +20,16 @@ spec:
 
   template:
     spec:
-      {{- if .Values.players.enabled }}
-      players:
-        initialCapacity: {{ .Values.players.count }}
-      {{- end }}
+      counters:
+        players:
+          count: 0
+          {{- if .Values.players.max }}
+          max: {{ .Values.players.max }}
+          {{- end }}
+
+      lists:
+        players:
+          values: []
 
       ports:
         - name: default
