@@ -32,8 +32,8 @@ memory:
 # Server container resources override
 resources:
   requests:
-    cpu: 0m
-    memory: 1024Mi # Remember usage of: heap, off-heap, native memory, profiler overhead (separate proc)
+    cpu: '0'
+    memory: 1Gi # Remember usage of: heap, off-heap, native memory, profiler overhead (separate proc)
   limits:
     cpu: 1500m
     memory: 1280Mi
