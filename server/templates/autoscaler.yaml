@@ -1,15 +1,40 @@
+{{/*apiVersion: autoscaling.agones.dev/v1*/}}
+{{/*kind: FleetAutoscaler*/}}
+
+{{/*metadata:*/}}
+{{/*  name: {{ .Values.name }}*/}}
+{{/*  namespace: emortalmc*/}}
+
+{{/*spec:*/}}
+{{/*  fleetName: {{ .Values.name }}*/}}
+{{/*  policy:*/}}
+{{/*    type: Buffer*/}}
+{{/*    buffer:*/}}
+{{/*      bufferSize: {{ .Values.lobby | ternary 2 1 }}*/}}
+{{/*      minReplicas: {{ .Values.lobby | ternary 3 2 }}*/}}
+{{/*      maxReplicas: 6*/}}
+
+{{/*---*/}}
 apiVersion: autoscaling.agones.dev/v1
 kind: FleetAutoscaler
 
 metadata:
-  name: {{ .Values.name }}
+  name: {{ .Values.name }}-autoscaler
   namespace: emortalmc
 
 spec:
   fleetName: {{ .Values.name }}
   policy:
-    type: Buffer
-    buffer:
-      bufferSize: {{ .Values.lobby | ternary 2 1 }}
-      minReplicas: {{ .Values.lobby | ternary 3 2 }}
-      maxReplicas: 6
+    type: Counter
+    counter:
+      {{ if .Values.players.capacity}}
+      key: players
+      bufferSize: 20 # buffer size of 20 players
+      minCapacity: {{ .Values.players.capacity | add 1 }} # Run 2 servers at a minimum
+      maxCapacity: {{ .Values.players.capacity | mul 6 }} # Run 6x over base capacity at a maximum
+      {{ else }}
+      key: games
+      bufferSize: 3 # buffer size of 3 games
+      minCapacity: {{ .Values.games.capacity | add 1 }} # Run 2 servers at a minimum
+      maxCapacity: {{ .Values.games.capacity | mul 6 }} # Run 6x over base capacity at a maximum
+      {{ end }}
