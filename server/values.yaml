@@ -21,6 +21,9 @@ lobby: false
 players:
   capacity: # No default value
 
+games:
+  capacity: # No default value
+
 # JVM memory options
 memory:
   max: 512M

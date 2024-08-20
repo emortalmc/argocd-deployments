@@ -1,2 +1,5 @@
 name: blocksumo
 version: a38f0967ef44945a21d32c692d89f785dd093003
+
+games:
+  capacity: 5

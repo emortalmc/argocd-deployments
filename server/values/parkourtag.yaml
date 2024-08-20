@@ -1,2 +1,5 @@
 name: parkourtag
 version: d8eb2313f56a8dd614fb83c86a03105b621c7b58
+
+games:
+  capacity: 10

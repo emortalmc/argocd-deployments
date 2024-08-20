@@ -26,13 +26,23 @@ spec:
           {{- if .Values.players.capacity }}
           capacity: {{ .Values.players.capacity }}
           {{- end }}
+        {{- if not .Values.lobby }}
+        games:
+          count: 0
+          capacity: {{ .Values.games.capacity }}
+        {{- end }}
 
       lists:
         players:
-          values: []
+          values: [ ]
           {{- if .Values.players.capacity }}
           capacity: {{ .Values.players.capacity }}
           {{- end }}
+        {{- if not .Values.lobby }}
+        games:
+          values: [ ]
+          capacity: {{ .Values.games.capacity }}
+        {{- end }}
 
       ports:
         - name: default

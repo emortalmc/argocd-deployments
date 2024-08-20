@@ -5,6 +5,9 @@ image:
   format: "ghcr.io/zakshearman/%s:%s"
   name: "mc-tower-defence"
 
+games:
+  capacity: 1
+
 # Keep 128M away from the heap
 memory:
   min: 384M
