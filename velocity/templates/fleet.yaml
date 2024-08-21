@@ -24,6 +24,16 @@ spec:
           containerPort: 25565
           protocol: TCP
 
+      counters:
+        players:
+          count: 0
+          capacity: 1000
+
+      lists:
+        players:
+          values: []
+          capacity: 1000
+
       health:
         initialDelaySeconds: 10
         periodSeconds: 6
