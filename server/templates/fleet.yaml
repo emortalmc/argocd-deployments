@@ -14,6 +14,10 @@ spec:
       maxSurge: 25%
       maxUnavailable: 25%
 
+  # This is a workaround for an Agones bug related to Counters/Lists FleetAutoscalers.
+  # https://github.com/googleforgames/agones/issues/3943
+  replicas: 1
+
   allocationOverflow:
     labels:
       emortal.dev/outdated: "true"
@@ -26,7 +30,7 @@ spec:
           {{- if .Values.players.capacity }}
           capacity: {{ .Values.players.capacity }}
           {{- end }}
-        {{- if not .Values.lobby }}
+        {{- if .Values.games.capacity }}
         games:
           count: 0
           capacity: {{ .Values.games.capacity }}
@@ -38,7 +42,7 @@ spec:
           {{- if .Values.players.capacity }}
           capacity: {{ .Values.players.capacity }}
           {{- end }}
-        {{- if not .Values.lobby }}
+        {{- if .Values.games.capacity }}
         games:
           values: [ ]
           capacity: {{ .Values.games.capacity }}
