@@ -7,13 +7,13 @@ players:
   capacity: 50
 
 memory:
-  max: 2048M
-  min: 2048M
+  max: 1536M
+  min: 1536M
 
 resources:
   requests:
     cpu: 0m
-    memory: 3072Mi
+    memory: 2048i
   limits:
     cpu: 2000m
-    memory: 3072Mi
+    memory: 2048Mi
