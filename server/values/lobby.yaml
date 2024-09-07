@@ -4,7 +4,7 @@ version: 3940479b38f666573aa86b480ea4d651f8943c0b
 lobby: true
 
 players:
-  capacity: 50
+  capacity: 75
 
 memory:
   max: 1536M
