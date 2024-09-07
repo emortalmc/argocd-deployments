@@ -1,5 +1,5 @@
 name: message-handler
-version: 6d38c1a1037e9021278d87355e7d3831e2578afa
+version: 9e0dfbceb8f170c29ed0a3290c6bcbb0c86cb606
 
 mongodb:
   enabled: false
