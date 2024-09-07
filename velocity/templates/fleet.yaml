@@ -27,12 +27,10 @@ spec:
       counters:
         players:
           count: 0
-          capacity: 3000
 
       lists:
         players:
           values: []
-          capacity: 3000
 
       health:
         initialDelaySeconds: 10
@@ -52,7 +50,7 @@ spec:
               image: "ghcr.io/emortalmc/velocity-core:{{ .Values.version }}"
 
               command: ["java"]
-              args: ["--enable-preview", "-XX:+UseZGC", "-Xmx6G", "-Xms6G", "-jar", "/app/velocity.jar"]
+              args: ["--enable-preview", "-XX:+UseZGC", "-Xmx6G", "-Xms5G", "-jar", "/app/velocity.jar"]
 
               lifecycle:
                 postStart:
@@ -61,10 +59,10 @@ spec:
 
               resources:
                 requests:
-                  memory: "16Gi"
+                  memory: "12Gi"
                   cpu: "500m"
                 limits:
-                  memory: "16Gi"
+                  memory: "12Gi"
                   cpu: "12"
 
               env:
