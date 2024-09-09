@@ -1,0 +1,73 @@
+apiVersion: agones.dev/v1
+kind: Fleet
+
+metadata:
+  name: minestom-edge
+  namespace: emortalmc
+
+spec:
+  replicas: 1
+
+  template:
+    spec:
+      ports:
+        - name: default
+          portPolicy: Static
+          hostPort: 25565
+          containerPort: 25565
+          protocol: TCP
+
+      health:
+        initialDelaySeconds: 4
+        periodSeconds: 6
+        failureThreshold: 2
+
+      template:
+        spec:
+          serviceAccountName: default-gameserver
+          automountServiceAccountToken: true
+
+          nodeSelector:
+            node-role.kubernetes.io/control-plane: "true" # Only deploy on the control plane node
+
+          containers:
+            - name: minestom-edge
+              image: "ghcr.io/emortalmc/minestom-edge:{{ .Values.version }}"
+              imagePullPolicy: Always
+
+              command: [ "java" ]
+              args: [
+                "-Xlog:jni+resolve=off", # This is a workaround to stop the JNI warning for Unsafe.park being registered multiple times - caused by Pyroscope.
+                "-Xmx128M",
+                "-Xms128M",
+                "-jar",
+                "/app/minestom-edge.jar"
+              ]
+
+              resources:
+                limits:
+                  memory: "256Mi"
+                  cpu: "2"
+                requests:
+                  memory: "256Mi"
+                  cpu: "150m"
+
+              env:
+                - name: KAFKA_HOST
+                  value: "kafka"
+                - name: KAFKA_PORT
+                  value: "9092"
+                - name: NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      fieldPath: metadata.namespace
+                - name: PYROSCOPE_ADDRESS
+                  value: "http://pyroscope.monitoring.svc.cluster.local:4040"
+                - name: FLEET_NAME
+                  value: "minestom-edge"
+                - name: EDGE_ROUTING_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: edge-routing-token
+                      key: routing-token
+                      optional: false

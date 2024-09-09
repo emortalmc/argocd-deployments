@@ -6,7 +6,7 @@ metadata:
   namespace: emortalmc
 
 spec:
-  replicas: 1
+  replicas: 2
   scheduling: Packed
 
   strategy:
@@ -19,8 +19,7 @@ spec:
     spec:
       ports:
         - name: default
-          portPolicy: Static
-          hostPort: 25565
+          portPolicy: Dynamic
           containerPort: 25565
           protocol: TCP
 
@@ -41,9 +40,6 @@ spec:
         spec:
           serviceAccountName: default-gameserver
           automountServiceAccountToken: true
-
-          nodeSelector:
-            node-role.kubernetes.io/control-plane: "true" # Only deploy on the control plane node
 
           containers:
             - name: velocity
@@ -87,3 +83,9 @@ spec:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
+                - name: EDGE_ROUTING_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: edge-routing-token
+                      key: routing-token
+                      optional: false
