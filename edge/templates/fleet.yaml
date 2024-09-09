@@ -18,7 +18,7 @@ spec:
           protocol: TCP
 
       health:
-        initialDelaySeconds: 4
+        initialDelaySeconds: 6
         periodSeconds: 6
         failureThreshold: 2
 
