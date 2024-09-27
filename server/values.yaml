@@ -19,10 +19,10 @@ version: ""
 lobby: false
 
 players:
-  capacity: # No default value
+  capacity: # No default value, the limit per server
 
 games:
-  capacity: # No default value
+  capacity: # No default value, the limit per server
 
 # JVM memory options
 memory:

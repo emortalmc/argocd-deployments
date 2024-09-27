@@ -18,6 +18,6 @@ spec:
       {{ else }}
       key: games
       bufferSize: 3 # buffer size of 3 games
-      minCapacity: {{ .Values.games.capacity | add 1 }} # Run 2 servers at a minimum
+      minCapacity: {{ .Values.games.capacity | add 3 }} # Run 2 servers at a minimum
       maxCapacity: {{ .Values.games.capacity | mul 6 }} # Run 6x over base capacity at a maximum
       {{ end }}
