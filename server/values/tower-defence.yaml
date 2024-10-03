@@ -1,5 +1,5 @@
 name: tower-defence
-version: 5515db111efe5dcdaa7d9c4ff15d57c507988e5c
+version: c7400b379e53821709a2af2187c837fb66932664
 
 image:
   format: "ghcr.io/zakshearman/%s:%s"
