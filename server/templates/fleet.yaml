@@ -124,6 +124,9 @@ spec:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
+                {{- with .Values.extraEnv }}
+                {{- toYaml . | nindent 16 }}
+                {{- end }}
 
               volumeMounts:
                 - mountPath: /app/crash_reports

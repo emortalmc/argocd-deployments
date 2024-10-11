@@ -6,3 +6,7 @@ players:
 
 games:
   capacity: 50
+
+extraEnv:
+  - name: "DISABLE_AGONES_GAME_COUNTER"
+    value: "true"

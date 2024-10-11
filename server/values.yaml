@@ -24,6 +24,8 @@ players:
 games:
   capacity: # No default value, the limit per server
 
+extraEnv: [] # Extra environment variables to add to the container
+
 # JVM memory options
 memory:
   max: 512M
