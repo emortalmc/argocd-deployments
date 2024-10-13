@@ -124,6 +124,10 @@ spec:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
+                {{- if not .Values.games.capacity }}
+                - name: "DISABLE_AGONES_GAME_COUNTER"
+                  value: "true"
+                {{- end }}
                 {{- with .Values.extraEnv }}
                 {{- toYaml . | nindent 16 }}
                 {{- end }}
