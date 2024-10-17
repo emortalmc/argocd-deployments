@@ -1,5 +1,5 @@
 name: minesweeper
-version: e1f6d17c2640c419e8d87f1cde30565b47f33731
+version: b1241daef0b29cfb2e755c492d26db4cd1d66445
 
 players:
   capacity: 100
