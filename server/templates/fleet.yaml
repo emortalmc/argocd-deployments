@@ -122,7 +122,4 @@ spec:
                 {{- toYaml . | nindent 16 }}
                 {{- end }}
 
-              volumeMounts:
-                - mountPath: /app/crash_reports
-                  name: crash-reports
 
