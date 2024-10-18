@@ -67,11 +67,6 @@ spec:
           serviceAccountName: default-gameserver
           automountServiceAccountToken: true
 
-          volumes:
-            - name: crash-reports
-              persistentVolumeClaim:
-                claimName: mc-crash-reports
-
           containers:
             - name: {{ .Values.name }}
               image: {{ printf .Values.image.format (default .Values.name .Values.image.name) .Values.version }}
@@ -83,11 +78,6 @@ spec:
                 "-Xmx{{ .Values.memory.max }}",
                 "-Xms{{ .Values.memory.min }}",
                 "-Dlogback.configurationFile=logback-prod.xml",
-                # Start of crash reporting
-                "-XX:ErrorFile=/app/crash_reports/hs_err_pid%p.log",
-                "-XX:+HeapDumpOnOutOfMemoryError",
-                "-XX:HeapDumpPath=/app/crash_reports/",
-                # End of crash reporting
                 "-jar",
                 "/app/{{ default (printf "%s.jar" .Values.name) .Values.jarName }}"
               ]
