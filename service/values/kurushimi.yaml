@@ -1,5 +1,5 @@
 name: kurushimi
-version: 9b3e98c0f418f8f800028c95196c686bcebd3664
+version: f4e069b3dc4fc06c8e329d512c84561ba5f484af
 imageName: kurushimi
 
 replicas: 1
