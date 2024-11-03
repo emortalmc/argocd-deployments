@@ -1,6 +1,6 @@
 name: matchmaker
 version: 42395303477127169cc630e2449598ae76102efd
-imageName: kurushimi
+imageName: matchmaker
 
 replicas: 1
 enableLiveConfig: true
