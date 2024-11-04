@@ -1,5 +1,5 @@
 name: permission
-version: 806cc1cc061c64882a85c1916cfb9f648f03ab3e
+version: 54415ca13cb7750bdb1c56bf682e18bad6b2adc4
 imageName: permission-service
 
 mongodb:
