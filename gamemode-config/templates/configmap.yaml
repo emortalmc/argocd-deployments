@@ -9,6 +9,10 @@ metadata:
     app.kubernetes.io/managed-by: {{ .Release.Service }}
 data:
   {{- range .Values.gamemodes }}
-  {{ .id }}.json: |-
-    {{- . | toPrettyJson | nindent 4 }}
+  {{- $keyName := printf "%s.json" .id }}
+  {{- if .priority }}
+  {{- $keyName = printf "%d-%s.json" (int .priority) .id }}
+  {{- end }}
+  {{ $keyName }}: |-
+  {{ . | toPrettyJson | nindent 4 }}
   {{- end }}
