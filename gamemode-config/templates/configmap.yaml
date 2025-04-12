@@ -10,5 +10,5 @@ metadata:
 data:
   {{- range .Values.gamemodes }}
   {{ .id }}.json: |-
-    {{- . | toJson | nindent 4 }}
+    {{- . | toPrettyJson | nindent 4 }}
   {{- end }}
