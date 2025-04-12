@@ -1,0 +1,171 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Game Mode Configuration Values",
+  "description": "Schema for the list of game modes configured in the chart.",
+  "type": "object",
+  "required": [
+    "gamemodes"
+  ],
+  "properties": {
+    "gamemodes": {
+      "type": "array",
+      "description": "A list of game mode configurations.",
+      "items": {
+        "$ref": "#/$defs/gameModeDefinition"
+      }
+    }
+  },
+  "additionalProperties": false,
+
+  "$defs": {
+    "gameModeDefinition": {
+      "title": "Game Mode Item",
+      "description": "Schema for a single game mode, lobby, or similar entity.",
+      "type": "object",
+      "required": [
+        "id",
+        "enabled",
+        "fleetName",
+        "friendlyName",
+        "activityNoun",
+        "minPlayers",
+        "maxPlayers",
+        "partyRestrictions",
+        "matchmakerInfo"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique technical identifier for this configuration (e.g., 'lazertag', 'lobby')."
+        },
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether this game mode/configuration is active."
+        },
+        "fleetName": {
+          "type": "string",
+          "description": "Identifier used for server fleet association (often matches 'id')."
+        },
+        "priority": {
+          "type": "integer",
+          "description": "Optional priority value, likely used for sorting or selection logic (lower value might mean higher priority based on examples).",
+          "minimum": 0
+        },
+        "friendlyName": {
+          "type": "string",
+          "description": "User-facing name for the game mode, potentially with formatting codes."
+        },
+        "activityNoun": {
+          "type": "string",
+          "description": "The verb/noun used in status messages (e.g., 'playing', 'in the', 'solving')."
+        },
+        "minPlayers": {
+          "type": "integer",
+          "description": "Minimum number of players required to start or participate.",
+          "minimum": 1
+        },
+        "maxPlayers": {
+          "type": "integer",
+          "description": "Maximum number of players allowed.",
+          "minimum": 1
+        },
+        "displayItem": {
+          "type": ["object", "null"],
+          "description": "Optional configuration for how this mode is represented as an item in an inventory menu.",
+          "required": [
+            "material",
+            "slot",
+            "name",
+            "lore"
+          ],
+          "properties": {
+            "material": { "type": "string", "description": "The Minecraft item ID (e.g., 'minecraft:netherite_hoe')." },
+            "slot": { "type": "integer", "description": "The inventory slot number where the item should appear.", "minimum": 0 },
+            "name": { "type": "string", "description": "The display name of the item, potentially with formatting codes." },
+            "lore": {
+              "type": "array",
+              "description": "Lines of text appearing below the item name (tooltip), potentially with formatting codes.",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "displayNpc": {
+          "type": ["object", "null"],
+          "description": "Optional configuration for an NPC representing this mode.",
+          "required": [
+            "entityType",
+            "titles",
+            "skin"
+          ],
+          "properties": {
+            "entityType": { "type": "string", "description": "The type of entity for the NPC (e.g., 'PLAYER').", "enum": ["PLAYER"] },
+            "titles": {
+              "type": "array",
+              "description": "Lines of text displayed above the NPC's head, potentially with formatting codes.",
+              "minItems": 1,
+              "items": { "type": "string" }
+            },
+            "skin": {
+              "type": "object",
+              "description": "Skin data for the NPC (typically requires 'PLAYER' entityType).",
+              "required": ["texture", "signature"],
+              "properties": {
+                "texture": { "type": "string", "description": "Base64 encoded skin texture data." },
+                "signature": { "type": "string", "description": "Base64 encoded skin signature." }
+              }
+            }
+          }
+        },
+        "partyRestrictions": {
+          "type": "object",
+          "description": "Rules regarding player parties joining this mode.",
+          "required": ["minSize"],
+          "properties": {
+            "minSize": { "type": "integer", "description": "Minimum number of players required in a party.", "minimum": 1 },
+            "maxSize": { "type": ["integer", "null"], "description": "Optional maximum number of players allowed in a party.", "minimum": 1 }
+          }
+        },
+        "maps": {
+          "type": ["object", "null"],
+          "description": "Optional definition of specific maps available within this game mode. Keys are map IDs.",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["id", "enabled", "friendlyName", "priority", "displayItem"],
+            "properties": {
+              "id": { "type": "string", "description": "Unique technical identifier for the map." },
+              "enabled": { "type": "boolean", "description": "Whether this map is currently available." },
+              "friendlyName": { "type": "string", "description": "User-facing name for the map." },
+              "priority": { "type": "integer", "description": "Priority value for map selection or display.", "minimum": 0 },
+              "displayItem": {
+                "type": "object",
+                "description": "Configuration for how this map is represented as an item (e.g., in a map voting menu).",
+                "required": ["slot", "material", "name"],
+                "properties": {
+                  "slot": { "type": "integer", "description": "The inventory slot number for the map item.", "minimum": 0 },
+                  "material": { "type": "string", "description": "The Minecraft item ID for the map item." },
+                  "name": { "type": "string", "description": "The display name of the map item." },
+                  "lore": {
+                    "type": "array",
+                    "description": "Optional lines of text for the map item's tooltip.",
+                    "items": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "matchmakerInfo": {
+          "type": "object",
+          "description": "Configuration for how players are matched into instances of this mode.",
+          "required": ["matchMethod", "selectMethod", "rate"],
+          "properties": {
+            "matchMethod": { "type": "string", "description": "Method used to start a match.", "enum": ["COUNTDOWN", "INSTANT"] },
+            "selectMethod": { "type": "string", "description": "Method used to select a server instance.", "enum": ["AVAILABLE", "PLAYER_COUNT"] },
+            "rate": { "type": "integer", "description": "A rate value, possibly related to matchmaking speed or priority weighting." }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
