@@ -1,5 +1,5 @@
 name: matchmaker
-version: 84e3c62931537cc92a8604191750d32218dcd1ea
+version: ffc2723220d7444010bf4ae3833233dbe7838293
 imageName: matchmaker
 
 replicas: 1
