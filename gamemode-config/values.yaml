@@ -335,7 +335,7 @@ gamemodes:
       selectMethod: "AVAILABLE"
       rate: 175000000
   - id: "holeymoley"
-    enabled: false
+    enabled: true
     fleetName: "holeymoley"
     priority: 120
     friendlyName: "Holey Moley"
