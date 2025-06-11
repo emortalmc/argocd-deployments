@@ -335,7 +335,7 @@ gamemodes:
       selectMethod: "AVAILABLE"
       rate: 175000000
   - id: "holeymoley"
-    enabled: true
+    enabled: false
     fleetName: "holeymoley"
     priority: 120
     friendlyName: "Holey Moley"
@@ -352,10 +352,10 @@ gamemodes:
     displayNpc:
       entityType: "PLAYER"
       titles:
-        - "<gradient:blue:aqua><bold>Block Sumo</bold></gradient>"
+        - "<gradient:gold><bold>Holey Moley</bold></gradient>"
       skin:
-        texture: "ewogICJ0aW1lc3RhbXAiIDogMTY0ODk0Njk5OTE3OSwKICAicHJvZmlsZUlkIiA6ICI3YmQ1YjQ1OTFlNmI0NzUzODI3NDFmYmQyZmU5YTRkNSIsCiAgInByb2ZpbGVOYW1lIiA6ICJlbW9ydGFsZGV2IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzkxZDdhOWMwODBlZTdjYTZkZjlhYWJlM2I5NTliYWE4MThkYWUzYjQ1ZWI3YWRjMTMwZmYyNjU1YzlkOTRjY2YiCiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzIzNDBjMGUwM2RkMjRhMTFiMTVhOGIzM2MyYTdlOWUzMmFiYjIwNTFiMjQ4MWQwYmE3ZGVmZDYzNWNhN2E5MzMiCiAgICB9CiAgfQp9"
-        signature: "prWY0EtGdAfqt/nc4Vv/sMBcVEb6WMvaRumTk72e/NKe3dUPxmzlDRm6rw/mEE332JND6+sEI9PmDQ4jj/W41cn/XR/uZIBS+1qLE+57slEQA+ds+/kffKt1358JEV5/qyqCnODLVjwsRwazXJstC3eKNByaTQEyZ2jv/mFeAIAOF+0eQqDaaMGgxdIMRvWR8Nj6uIiBFTdCPIw3OYZ5bxqxm8Epr5PppF+sj7ZK0UyQ5/f1UoO9B/YMUt0OW+UlF3NYcMDs5mrg1N8Ajxvqbe8l0X7eWHgSYd0S/FopSCiVVQOQdZHRyhicmzLv6rE+xW03SB8NRfoaEEvSh8+QiLGMcyETeriwdDzdf8H9Iin3vDkVbMyRTAJ5jL/xDkoFDFR5HtNkrwYBRJoVkiWbnWyoBFofAjmmMmGmT5SFABS7I0iWLEoP4EMzqy84zDbpwOOioQz9UFlZV8AqmyEDv8Hx6px20zdR/jPr7tRQgqRhcPyzNsElcNLhkBfHmhpKffkrEPOAaal49rtB+3Jq+nX8Z1VyEZSW4MYnuq91bFZ1ciMzopYulPwP4cZkrGaqV84lxsqStI5+STi105KP4Bws+XDpop1eyPdDuVL/axq3VVkKeRqSoMv+xRYONGZJQgZ1t0WRIsXk7DLsjtx8QgffxqOwjW5CmZR0liSPfYM="
+        texture: "ewogICJ0aW1lc3RhbXAiIDogMTY2NTQwMDcxNjY5OSwKICAicHJvZmlsZUlkIiA6ICI5NTE3OTkxNjljYzE0MGY1OGM2MmRjOGZmZTU3NjBiZCIsCiAgInByb2ZpbGVOYW1lIiA6ICJZdWFyaWciLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTIzMmM1OWE2OWNhMDUzMmIyM2RkOTViNDI1Mzc3MmU1MmEwZGQzZjU0ZDhkZmNmZjJmOWM4Y2Q5MGI2MzdiOCIKICAgIH0KICB9Cn0="
+        signature: "yNjzOUzcK0+6IZDKDnrWii4FSHYHHHbpmrSy2RLQm/9zd5IudZNVw3VcPcXOwxCukBqz2t5+LWfHuzqqRb6mB/V5rZ9KSl+AA+TL3PYSEcvcD5EZJRXO1bYXOgppJ//VflYfbWJnYkQZt83bYf+VJxL40mARezLAlIvSL48rxhtuTgFO/AyoHrCmbjpr/tqqN5QWEqlJmyBaclOgLzTykkQTWx/7fofYoASRK0hEpVjwfbH+DJjK2aM5MC+C61HDG4BO2vBAQicDBDQ9BL+1Q7yPn7gEV7QRrP1p5ldWHL21ARWFAQ4TI80cqBbL+UTQUUSw+UHU7Ft/VA6yuJMFu7b7unUWsee9vIyOJgVeKnanlpCzUFrzTQhV6GcQNbRFImbRAuaDvFcrOvOcBMBoHG80HGSo0A/gnA5V3ozF3bFWsMPpPdI/LuoQsPh8qf/cXpvrmm4ABgY/GaXtpuj08aEOmkrppbeuQCVFToPQrjloDAZCO8Ghx0bHBiChmYJaDqFRMyA0p2P4gT+HFEP5wx3yybpZe1n1+qOvViS6wbly7l1KhTLN6vR77lLRrHlJaiiFGDBRelFwBN23j+eVtV1kjMTgspt3WVDMSzvkw7rXF3d3jMUPgTfpOogrt96yA3PN+17xm1jJMap+Wju2CZzMpgBfRBYaD8VNC19IAUM="
     partyRestrictions:
       minSize: 1
       maxSize: 20
