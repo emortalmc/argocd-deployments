@@ -44,7 +44,7 @@ gamemodes:
       rate: 175000000
 
   - id: "lazertag"
-    enabled: false
+    enabled: true
     fleetName: "lazertag"
     priority: 110
     friendlyName: "LazerTag"
