@@ -18,7 +18,7 @@ gamemodes:
     fleetName: "marathon"
     priority: 105
     friendlyName: "Marathon"
-    activityNoun: "playing"
+    activityNoun: "going on a"
     minPlayers: 1
     maxPlayers: 100
     displayItem:
@@ -48,7 +48,7 @@ gamemodes:
     fleetName: "lazertag"
     priority: 110
     friendlyName: "LazerTag"
-    activityNoun: "playing"
+    activityNoun: "shooting in"
     minPlayers: 2
     maxPlayers: 12
     displayItem:
@@ -78,7 +78,7 @@ gamemodes:
     fleetName: "parkourtag"
     priority: 115
     friendlyName: "ParkourTag"
-    activityNoun: "playing"
+    activityNoun: "hiding in"
     minPlayers: 2
     maxPlayers: 12
     displayItem:
@@ -127,7 +127,7 @@ gamemodes:
     fleetName: "blocksumo"
     priority: 120
     friendlyName: "Block Sumo"
-    activityNoun: "playing"
+    activityNoun: "sumoing in"
     minPlayers: 2
     maxPlayers: 12
     displayItem:
@@ -214,7 +214,7 @@ gamemodes:
     fleetName: "tower-defence"
     priority: 125
     friendlyName: "TowerDefence"
-    activityNoun: "playing"
+    activityNoun: "defending in"
     minPlayers: 2
     maxPlayers: 12
     # displayItem:
@@ -249,7 +249,7 @@ gamemodes:
     fleetName: "battle"
     priority: 130
     friendlyName: "Battle"
-    activityNoun: "playing"
+    activityNoun: "sword fighting in"
     minPlayers: 2
     maxPlayers: 12
     displayItem:
@@ -334,3 +334,32 @@ gamemodes:
       matchMethod: "INSTANT"
       selectMethod: "AVAILABLE"
       rate: 175000000
+  - id: "holeymoley"
+    enabled: true
+    fleetName: "holeymoley"
+    priority: 120
+    friendlyName: "Holey Moley"
+    activityNoun: "digging in"
+    minPlayers: 2
+    maxPlayers: 20
+    displayItem:
+      material: "minecraft:iron_shovel"
+      slot: 10
+      name: "<gradient:gold><bold>Holey Moley</bold></gradient>"
+      lore:
+        - "<gray>Fight to be the last"
+        - "<gray>mole in the dirt cube"
+    displayNpc:
+      entityType: "PLAYER"
+      titles:
+        - "<gradient:blue:aqua><bold>Block Sumo</bold></gradient>"
+      skin:
+        texture: "ewogICJ0aW1lc3RhbXAiIDogMTY0ODk0Njk5OTE3OSwKICAicHJvZmlsZUlkIiA6ICI3YmQ1YjQ1OTFlNmI0NzUzODI3NDFmYmQyZmU5YTRkNSIsCiAgInByb2ZpbGVOYW1lIiA6ICJlbW9ydGFsZGV2IiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzkxZDdhOWMwODBlZTdjYTZkZjlhYWJlM2I5NTliYWE4MThkYWUzYjQ1ZWI3YWRjMTMwZmYyNjU1YzlkOTRjY2YiCiAgICB9LAogICAgIkNBUEUiIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzIzNDBjMGUwM2RkMjRhMTFiMTVhOGIzM2MyYTdlOWUzMmFiYjIwNTFiMjQ4MWQwYmE3ZGVmZDYzNWNhN2E5MzMiCiAgICB9CiAgfQp9"
+        signature: "prWY0EtGdAfqt/nc4Vv/sMBcVEb6WMvaRumTk72e/NKe3dUPxmzlDRm6rw/mEE332JND6+sEI9PmDQ4jj/W41cn/XR/uZIBS+1qLE+57slEQA+ds+/kffKt1358JEV5/qyqCnODLVjwsRwazXJstC3eKNByaTQEyZ2jv/mFeAIAOF+0eQqDaaMGgxdIMRvWR8Nj6uIiBFTdCPIw3OYZ5bxqxm8Epr5PppF+sj7ZK0UyQ5/f1UoO9B/YMUt0OW+UlF3NYcMDs5mrg1N8Ajxvqbe8l0X7eWHgSYd0S/FopSCiVVQOQdZHRyhicmzLv6rE+xW03SB8NRfoaEEvSh8+QiLGMcyETeriwdDzdf8H9Iin3vDkVbMyRTAJ5jL/xDkoFDFR5HtNkrwYBRJoVkiWbnWyoBFofAjmmMmGmT5SFABS7I0iWLEoP4EMzqy84zDbpwOOioQz9UFlZV8AqmyEDv8Hx6px20zdR/jPr7tRQgqRhcPyzNsElcNLhkBfHmhpKffkrEPOAaal49rtB+3Jq+nX8Z1VyEZSW4MYnuq91bFZ1ciMzopYulPwP4cZkrGaqV84lxsqStI5+STi105KP4Bws+XDpop1eyPdDuVL/axq3VVkKeRqSoMv+xRYONGZJQgZ1t0WRIsXk7DLsjtx8QgffxqOwjW5CmZR0liSPfYM="
+    partyRestrictions:
+      minSize: 1
+      maxSize: 20
+    matchmakerInfo:
+      matchMethod: "COUNTDOWN"
+      selectMethod: "AVAILABLE"
+      rate: 250000000
