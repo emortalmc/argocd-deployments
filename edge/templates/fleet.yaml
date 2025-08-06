@@ -38,7 +38,6 @@ spec:
 
               command: [ "java" ]
               args: [
-                "-Xlog:jni+resolve=off", # This is a workaround to stop the JNI warning for Unsafe.park being registered multiple times - caused by Pyroscope.
                 "-Xmx128M",
                 "-Xms128M",
                 "-jar",
