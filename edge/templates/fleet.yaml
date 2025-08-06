@@ -64,11 +64,6 @@ spec:
                       fieldPath: metadata.namespace
                 - name: FLEET_NAME
                   value: minestom-edge
-                - name: PYROSCOPE_SERVER_ADDRESS
-                  valueFrom:
-                    configMapKeyRef:
-                      name: pyroscope
-                      key: address
                 - name: EDGE_ROUTING_KEY
                   valueFrom:
                     secretKeyRef:
