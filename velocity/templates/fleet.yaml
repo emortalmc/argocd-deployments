@@ -6,20 +6,18 @@ metadata:
   namespace: emortalmc
 
 spec:
-  replicas: 2
+  replicas: 1
   scheduling: Packed
 
   strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 50%
-      maxUnavailable: 50%
+    type: Recreate # Don't do Rolling, or we'll have two Proxies running at once (trying to use the same port)
 
   template:
     spec:
       ports:
         - name: default
-          portPolicy: Dynamic
+          portPolicy: Static
+          hostPort: 25565
           containerPort: 25565
           protocol: TCP
 
@@ -78,14 +76,3 @@ spec:
                       fieldPath: metadata.namespace
                 - name: FLEET_NAME
                   value: velocity
-                - name: PYROSCOPE_SERVER_ADDRESS
-                  valueFrom:
-                    configMapKeyRef:
-                      name: pyroscope
-                      key: address
-                - name: EDGE_ROUTING_KEY
-                  valueFrom:
-                    secretKeyRef:
-                      name: edge-routing-token
-                      key: routing-token
-                      optional: false
