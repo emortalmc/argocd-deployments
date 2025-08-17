@@ -71,6 +71,10 @@ spec:
             - name: {{ .Values.name }}
               image: {{ printf .Values.image.format (default .Values.name .Values.image.name) .Values.version }}
 
+              {{- if .Values.nativeimage }}
+              command: [ "/app/{{ .Values.name }}" ]
+              args: []
+              {{- else }}
               command: [ "java" ]
               args: [
                 "-XX:+UseZGC",
@@ -81,6 +85,7 @@ spec:
                 "-jar",
                 "/app/{{ default (printf "%s.jar" .Values.name) .Values.jarName }}"
               ]
+              {{- end }}
 
               resources:
               {{- with .Values.resources }}
@@ -109,11 +114,13 @@ spec:
                       fieldPath: metadata.namespace
                 - name: FLEET_NAME
                   value: {{ .Values.name }}
+                {{- if not .Values.nativeimage }}
                 - name: PYROSCOPE_ADDRESS
                   valueFrom:
                     configMapKeyRef:
                       name: pyroscope
                       key: address
+                {{- end }}
                 {{- if not (default false .Values.games.capacity) }}
                 - name: "DISABLE_AGONES_GAME_COUNTER"
                   value: "true"

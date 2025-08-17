@@ -1,5 +1,7 @@
 name: marathon
 version: 7858eaa0f394c5cd4adf79f3760f5eeaabb59b3c
 
+nativeimage: true
+
 players:
   capacity: 100
