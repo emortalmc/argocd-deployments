@@ -1,10 +1,10 @@
 # The name of the fleet, container, and image
 name: ""
 
-# The full image. Defaults to "ghcr.io/emortalmc/{name}:{version}"
+# The full image. Defaults to "ghcr.io/emortalmc/games:{name}-{version}"
 image:
   # The image format
-  format: "ghcr.io/emortalmc/%s:%s"
+  format: "ghcr.io/emortalmc/games:%s-%s"
   # The image name. This is the first "%s" in the above format. Defaults to "{name}"
   #name: ""
 
