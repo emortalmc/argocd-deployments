@@ -41,7 +41,7 @@ spec:
 
           containers:
             - name: velocity
-              image: "ghcr.io/emortalmc/velocity-core:{{ .Values.version }}"
+              image: "ghcr.io/emortalmc/velocity-core:velocity-{{ .Values.version }}"
 
               command: [ "java" ]
               args: [ "--enable-preview", "-XX:+UseZGC", "-Xmx3G", "-Xms3G", "-jar", "/app/velocity.jar" ]
