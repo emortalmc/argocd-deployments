@@ -12,6 +12,8 @@ gamemodes:
       matchMethod: "INSTANT"
       selectMethod: "PLAYER_COUNT"
       rate: 500000000
+    displayItem:
+      name: "<white>Lobby</white>"
 
   - id: "marathon"
     enabled: true
@@ -217,10 +219,10 @@ gamemodes:
     activityNoun: "defending in"
     minPlayers: 2
     maxPlayers: 12
-    # displayItem:
+    displayItem:
     #   material: "minecraft:totem_of_undying"
     #   slot: 23
-    #   name: "<gradient:#ffb70f:#ffcd17:#ffb70f><bold>TowerDefence</bold></gradient>"
+      name: "<gradient:#ffb70f:#ffcd17:#ffb70f><bold>TowerDefence</bold></gradient>"
     #   lore:
     #     - "<gray>Tower Defence is a fast-paced PvP game where</gray>"
     #     - "<gray>quick reflexes and strategic tower building</gray>"
