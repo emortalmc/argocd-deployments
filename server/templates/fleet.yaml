@@ -78,6 +78,8 @@ spec:
               command: [ "java" ]
               args: [
                 "-XX:+UseZGC",
+                "-XX:+UseCompactObjectHeaders",
+                "-XX:+UseStringDeduplication",
                 "-Xlog:jni+resolve=off", # This is a workaround to stop the JNI warning for Unsafe.park being registered multiple times - caused by Pyroscope.
                 "-Xmx{{ .Values.memory.max }}",
                 "-Xms{{ .Values.memory.min }}",
