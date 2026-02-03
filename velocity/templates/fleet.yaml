@@ -44,7 +44,7 @@ spec:
               image: "ghcr.io/emortalmc/velocity-core:velocity-{{ .Values.version }}"
 
               command: [ "java" ]
-              args: [ "--enable-preview", "-XX:+UseZGC", "-Xmx3G", "-Xms3G", "-jar", "/app/velocity.jar" ]
+              args: [ "--enable-preview", "-XX:+UseZGC", "-XX:+UseCompactObjectHeaders", "-XX:+UseStringDeduplication", "-Xmx3G", "-Xms3G", "-jar", "/app/velocity.jar" ]
 
               lifecycle:
                 postStart:
